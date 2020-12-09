@@ -11,3 +11,10 @@ spring:
     hibernate:
       ddl-auto: none
     generate-ddl: false
+
+  flyway:
+    enabled: ${SPRING_FLYWAY_ENABLED:true}
+    url: jdbc:h2:mem:testdb
+    user: sa
+    password: password
+    locations: 'classpath:/db/migration/commons,classpath:/db/migration/test'

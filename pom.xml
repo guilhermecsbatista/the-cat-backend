@@ -112,6 +112,8 @@
 						<exclude>**/*EntityBuilder.*</exclude>
 						<exclude>**/*Table.*</exclude>
 						<exclude>**/*TableBuilder.*</exclude>
+						<exclude>**/*Response.*</exclude>
+						<exclude>**/*ResponseBuilder.*</exclude>
 					</excludes>
 				</configuration>
 				<executions>

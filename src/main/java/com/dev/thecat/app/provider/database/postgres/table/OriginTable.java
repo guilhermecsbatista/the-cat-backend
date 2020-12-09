@@ -1,5 +1,6 @@
 package com.dev.thecat.app.provider.database.postgres.table;
 
+import com.dev.thecat.domain.origin.entity.OriginEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -47,4 +48,23 @@ public class OriginTable {
 
     @OneToMany(mappedBy="origin", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<BreedTable> breeds;
+
+    public OriginEntity toDomain() {
+        return OriginEntity.builder()
+                .id(id)
+                .integrationId(integrationId)
+                .description(description)
+                .createdAt(createdAt)
+                .build();
+    }
+
+    public OriginTable fromDomain(OriginEntity originEntity) {
+        return OriginTable.builder()
+                .id(originEntity.getId() == null ? id : originEntity.getId())
+                .integrationId(originEntity.getIntegrationId())
+                .description(originEntity.getDescription())
+                .createdAt(originEntity.getCreatedAt() == null ? createdAt : originEntity.getCreatedAt())
+                .updateAt(updateAt)
+                .build();
+    }
 }

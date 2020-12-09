@@ -1,5 +1,6 @@
 package com.dev.thecat.app.provider.database.postgres.table;
 
+import com.dev.thecat.domain.image.entity.ImageEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -47,4 +48,14 @@ public class ImageTable {
 
     @OneToMany(mappedBy="image", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<BreedImageTable> breedsImageTable;
+
+    public ImageTable fromDomain(ImageEntity imageEntity) {
+        return ImageTable.builder()
+                .id(imageEntity.getId() == null ? id : imageEntity.getId())
+                .integrationId(imageEntity.getIntegrationId())
+                .url(imageEntity.getUrl())
+                .createdAt(imageEntity.getCreatedAt() == null ? createdAt : imageEntity.getCreatedAt())
+                .updateAt(updateAt)
+                .build();
+    }
 }

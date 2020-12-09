@@ -1,5 +1,6 @@
 package com.dev.thecat.app.provider.database.postgres.table;
 
+import com.dev.thecat.domain.image.entity.ImageEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -50,4 +51,22 @@ public class BreedImageTable {
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateAt = new Date();
+
+    public ImageEntity toDomain() {
+        return ImageEntity.builder()
+                .id(image.getId())
+                .integrationId(image.getIntegrationId())
+                .url(image.getUrl())
+                .build();
+    }
+
+    public BreedImageTable fromDomain(UUID breedId, ImageEntity imageEntity) {
+        return BreedImageTable.builder()
+                .id(id)
+                .breed(BreedTable.builder().id(breedId).build())
+                .image(new ImageTable().fromDomain(imageEntity))
+                .createdAt(createdAt)
+                .updateAt(updateAt)
+                .build();
+    }
 }

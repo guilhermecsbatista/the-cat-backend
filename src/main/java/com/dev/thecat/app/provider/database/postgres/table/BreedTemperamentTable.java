@@ -1,5 +1,6 @@
 package com.dev.thecat.app.provider.database.postgres.table;
 
+import com.dev.thecat.domain.temperament.entity.TemperamentEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -50,4 +51,22 @@ public class BreedTemperamentTable {
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateAt = new Date();
+
+    public TemperamentEntity toDomain() {
+        return TemperamentEntity.builder()
+                .id(temperament.getId())
+                .integrationId(temperament.getIntegrationId())
+                .description(temperament.getDescription())
+                .build();
+    }
+
+    public BreedTemperamentTable fromDomain(UUID breedId, TemperamentEntity temperamentEntity) {
+        return BreedTemperamentTable.builder()
+                .id(id)
+                .breed(BreedTable.builder().id(breedId).build())
+                .temperament(new TemperamentTable().fromDomain(temperamentEntity))
+                .createdAt(createdAt)
+                .updateAt(updateAt)
+                .build();
+    }
 }

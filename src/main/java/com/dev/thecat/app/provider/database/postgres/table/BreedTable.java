@@ -1,5 +1,6 @@
 package com.dev.thecat.app.provider.database.postgres.table;
 
+import com.dev.thecat.domain.breed.entity.BreedEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,6 +24,7 @@ import javax.persistence.TemporalType;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Data
 @Builder
@@ -59,4 +61,32 @@ public class BreedTable {
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateAt = new Date();
+
+    public BreedEntity toDomain() {
+        return BreedEntity.builder()
+                .id(id)
+                .integrationId(integrationId)
+                .name(name)
+                .origin(origin.toDomain())
+                .temperaments(temperaments.stream().map(BreedTemperamentTable::toDomain).collect(Collectors.toList()))
+                .images(images.stream().map(BreedImageTable::toDomain).collect(Collectors.toList()))
+                .build();
+    }
+
+    public BreedTable fromDomain(BreedEntity breedEntity) {
+        return BreedTable.builder()
+                .id(id)
+                .integrationId(breedEntity.getIntegrationId())
+                .name(breedEntity.getName())
+                .origin(new OriginTable().fromDomain(breedEntity.getOrigin()))
+                .images(
+                        breedEntity.getImages().stream().map(e -> new BreedImageTable().fromDomain(id, e))
+                                .collect(Collectors.toList()))
+                .temperaments(
+                        breedEntity.getTemperaments().stream().map(e -> new BreedTemperamentTable().fromDomain(id, e))
+                                .collect(Collectors.toList()))
+                .createdAt(createdAt)
+                .updateAt(updateAt)
+                .build();
+    }
 }

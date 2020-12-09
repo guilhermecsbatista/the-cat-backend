@@ -1,5 +1,6 @@
 package com.dev.thecat.app.provider.database.postgres.table;
 
+import com.dev.thecat.domain.temperament.entity.TemperamentEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -47,4 +48,14 @@ public class TemperamentTable {
 
     @OneToMany(mappedBy="temperament", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<BreedTemperamentTable> breedsTemperamentTable;
+
+    public TemperamentTable fromDomain(TemperamentEntity temperamentEntity) {
+        return TemperamentTable.builder()
+                .id(temperamentEntity.getId() == null ? id : temperamentEntity.getId())
+                .integrationId(temperamentEntity.getIntegrationId())
+                .description(temperamentEntity.getDescription())
+                .createdAt(temperamentEntity.getCreatedAt() == null ? createdAt : temperamentEntity.getCreatedAt())
+                .updateAt(updateAt)
+                .build();
+    }
 }

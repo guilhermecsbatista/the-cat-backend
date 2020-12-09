@@ -26,14 +26,14 @@ public class ImagePostgresGetProviderImplTest {
     }
 
     @Test
-    public void byIntegrationIdOk() {
+    public void getByIntegrationIdTest() {
         when(this.imageRepository.findByIntegrationId(any())).thenReturn(
                 Optional.of(BreedTableSeed.getBreedTable().getImages().get(0).getImage()));
         this.imagePostgresGetProvider.getByIntegrationId(any());
     }
 
     @Test
-    public void byIntegrationIdDataNotFound() {
+    public void getByIntegrationIdDataNotFoundTest() {
         when(this.imageRepository.findByIntegrationId(any())).thenReturn(Optional.empty());
         this.imagePostgresGetProvider.getByIntegrationId(any());
     }

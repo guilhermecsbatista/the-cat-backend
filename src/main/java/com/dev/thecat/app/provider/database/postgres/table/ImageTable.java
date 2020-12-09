@@ -49,6 +49,14 @@ public class ImageTable {
     @OneToMany(mappedBy="image", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<BreedImageTable> breedsImageTable;
 
+    public ImageEntity toDomain() {
+        return ImageEntity.builder()
+                .id(id)
+                .integrationId(integrationId)
+                .url(url)
+                .build();
+    }
+
     public ImageTable fromDomain(ImageEntity imageEntity) {
         return ImageTable.builder()
                 .id(imageEntity.getId() == null ? id : imageEntity.getId())

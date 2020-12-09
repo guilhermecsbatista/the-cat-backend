@@ -4,8 +4,10 @@ import com.dev.thecat.app.provider.database.postgres.table.OriginTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
 public interface OriginRepository extends JpaRepository<OriginTable, UUID> {
+    Optional<OriginTable> findByIntegrationId(String integrationId);
 }

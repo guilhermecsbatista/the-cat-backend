@@ -49,6 +49,15 @@ public class TemperamentTable {
     @OneToMany(mappedBy="temperament", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<BreedTemperamentTable> breedsTemperamentTable;
 
+    public TemperamentEntity toDomain() {
+        return TemperamentEntity.builder()
+                .id(id)
+                .integrationId(integrationId)
+                .description(description)
+                .createdAt(createdAt)
+                .build();
+    }
+
     public TemperamentTable fromDomain(TemperamentEntity temperamentEntity) {
         return TemperamentTable.builder()
                 .id(temperamentEntity.getId() == null ? id : temperamentEntity.getId())

@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://${SPRING_DATASOURCE_HOST:localhost}:${SPRING_DATASOURCE_PORT:5432}/${SPRING_DATASOURCE_DBNAME:cat}}
+    username: ${SPRING_DATASOURCE_USERNAME:cat}
+    password: ${SPRING_DATASOURCE_PASSWORD:cat}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: ${SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE:10}
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false

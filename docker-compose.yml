@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_DB=cat
+      - POSTGRES_USER=cat
+      - POSTGRES_PASSWORD=cat
+    expose:
+      - '5432'
+    ports:
+      - '5432:5432'

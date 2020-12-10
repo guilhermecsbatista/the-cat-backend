@@ -56,8 +56,7 @@ public class BreedCreateContextDataUseCaseImplTest {
     @Test
     public void executeAlreadySavedTest() {
         when(this.breedGetAllProvider.getAll()).thenReturn(Collections.singletonList(BreedEntitySeeder.getBreedEntity()));
-        when(
-                this.breedGetByIntegrationIdProvider
+        when(this.breedGetByIntegrationIdProvider
                         .getByIntegrationId(anyString())).thenReturn(BreedEntitySeeder.getBreedEntity());
         this.breedCreateContextDataUseCase.execute();
     }
@@ -66,17 +65,13 @@ public class BreedCreateContextDataUseCaseImplTest {
     public void executeTest() {
         when(this.breedGetAllProvider.getAll()).thenReturn(Collections.singletonList(BreedEntitySeeder.getBreedEntity()));
 
-        when(
-                this.breedGetByIntegrationIdProvider
+        when(this.breedGetByIntegrationIdProvider
                         .getByIntegrationId(anyString())).thenReturn(null);
-        when(
-                this.originGetByIntegrationIdProvider
+        when(this.originGetByIntegrationIdProvider
                         .getByIntegrationId(anyString())).thenReturn(null);
-        when(
-                this.imageGetByIntegrationIdProvider
+        when(this.imageGetByIntegrationIdProvider
                         .getByIntegrationId(anyString())).thenReturn(null);
-        when(
-                this.temperamentGetByIntegrationIdProvider
+        when(this.temperamentGetByIntegrationIdProvider
                         .getByIntegrationId(anyString())).thenReturn(null);
         Mockito.doNothing().when(this.breedCreateProvider).create(Mockito.any());
         this.breedCreateContextDataUseCase.execute();
@@ -86,17 +81,13 @@ public class BreedCreateContextDataUseCaseImplTest {
     public void executeOriginImageTemperamentAlreadySavedTest() {
         when(this.breedGetAllProvider.getAll()).thenReturn(Collections.singletonList(BreedEntitySeeder.getBreedEntity()));
 
-        when(
-                this.breedGetByIntegrationIdProvider
+        when(this.breedGetByIntegrationIdProvider
                         .getByIntegrationId(anyString())).thenReturn(null);
-        when(
-                this.originGetByIntegrationIdProvider
+        when(this.originGetByIntegrationIdProvider
                         .getByIntegrationId(anyString())).thenReturn(BreedEntitySeeder.getBreedEntity().getOrigin());
-        when(
-                this.imageGetByIntegrationIdProvider
+        when(this.imageGetByIntegrationIdProvider
                         .getByIntegrationId(anyString())).thenReturn(BreedEntitySeeder.getBreedEntity().getImages().get(0));
-        when(
-                this.temperamentGetByIntegrationIdProvider
+        when(this.temperamentGetByIntegrationIdProvider
                         .getByIntegrationId(anyString())).thenReturn(BreedEntitySeeder.getBreedEntity().getTemperaments().get(0));
         Mockito.doNothing().when(this.breedCreateProvider).create(Mockito.any());
         this.breedCreateContextDataUseCase.execute();

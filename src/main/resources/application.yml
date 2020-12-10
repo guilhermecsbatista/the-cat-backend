@@ -5,7 +5,9 @@ application:
   version: '@pom.version@'
   client:
     default:
-      timeout: ${APPLICATION_CLIENT_DEFAULT_TIMEOUT:5000}
+      timeout: ${APPLICATION_CLIENT_DEFAULT_TIMEOUT:10000}
+  schedule:
+    cron: ${APPLICATION_SCHEDULE_CRON:0 0/2 * 1/1 * ?}
 
 spring:
   datasource:
@@ -15,7 +17,6 @@ spring:
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: ${SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE:10}
-
   jpa:
     show-sql: false
     hibernate:

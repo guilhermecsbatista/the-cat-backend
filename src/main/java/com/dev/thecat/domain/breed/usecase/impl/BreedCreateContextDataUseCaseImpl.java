@@ -10,6 +10,7 @@ import com.dev.thecat.domain.temperament.provider.TemperamentGetByIntegrationIdP
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.inject.Named;
+import javax.transaction.Transactional;
 
 @Named
 public class BreedCreateContextDataUseCaseImpl implements BreedCreateContextDataUseCase {
@@ -36,6 +37,7 @@ public class BreedCreateContextDataUseCaseImpl implements BreedCreateContextData
         this.breedCreateProvider = breedCreateProvider;
     }
 
+    @Transactional
     @Override
     public void execute() {
         var breedEntityList = this.breedGetAllProvider.getAll();

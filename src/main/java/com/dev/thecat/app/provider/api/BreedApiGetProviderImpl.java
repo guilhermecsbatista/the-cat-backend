@@ -26,8 +26,6 @@ import java.util.stream.Collectors;
 @Named("breedApiGetProvider")
 public class BreedApiGetProviderImpl implements BreedGetAllProvider {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
     @Value("${theCatApi.url.base}")
     private String urlBase;
 
@@ -88,7 +86,6 @@ public class BreedApiGetProviderImpl implements BreedGetAllProvider {
                     HttpMethod.GET, new HttpEntity(headers),
                     new ParameterizedTypeReference<List<BreedResponse>>() {});
         } catch (HttpStatusCodeException ex) {
-            logger.error("Error request {} - status code: {}", url, ex.getStatusCode().value());
             throw ex;
         }
     }
@@ -106,7 +103,6 @@ public class BreedApiGetProviderImpl implements BreedGetAllProvider {
                     HttpMethod.GET, new HttpEntity(headers),
                     new ParameterizedTypeReference<List<BreedImageResponse>>() {});
         } catch (HttpStatusCodeException ex) {
-            logger.error("Error request {} - status code: {}", url, ex.getStatusCode().value());
             throw ex;
         }
     }

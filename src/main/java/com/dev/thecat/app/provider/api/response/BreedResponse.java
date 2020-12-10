@@ -5,9 +5,11 @@ import com.dev.thecat.domain.origin.entity.OriginEntity;
 import com.dev.thecat.domain.temperament.entity.TemperamentEntity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -16,24 +18,15 @@ import java.util.stream.Stream;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BreedResponse {
-    @Getter(onMethod_ = {@JsonProperty("id")})
-    @Setter(onMethod_ = {@JsonProperty("id")})
+
     private String id;
-
-    @Getter(onMethod_ = {@JsonProperty("name")})
-    @Setter(onMethod_ = {@JsonProperty("name")})
     private String name;
-
-    @Getter(onMethod_ = {@JsonProperty("temperament")})
-    @Setter(onMethod_ = {@JsonProperty("temperament")})
     private String temperament;
-
-    @Getter(onMethod_ = {@JsonProperty("origin")})
-    @Setter(onMethod_ = {@JsonProperty("origin")})
     private String origin;
-
     private List<BreedImageResponse> breedImageResponse;
 
     public BreedEntity toDomain() {

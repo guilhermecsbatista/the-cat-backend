@@ -41,3 +41,10 @@ theCatApi:
         limit: ${THECATAPI_ENDPOINT_V1_BREED_LIMIT:50}
       image:
         path: ${THECATAPI_ENDPOINT_V1_IMAGE_PATH:/v1/images/search}
+
+springdoc:
+  show-actuator: true
+  swagger-ui:
+    path: '/docs'
+    operationsSorter: method
+    enabled: true

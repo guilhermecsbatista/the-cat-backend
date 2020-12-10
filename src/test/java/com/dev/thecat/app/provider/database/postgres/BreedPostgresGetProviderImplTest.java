@@ -50,14 +50,8 @@ public class BreedPostgresGetProviderImplTest {
 
     @Test
     public void getByTemperamentIdTest() {
-        when(this.breedTemperamentRepository.findById(any()))
-                .thenReturn(Optional.of(BreedTableSeed.getBreedTable().getTemperaments().get(0)));
-        this.breedPostgresGetProvider.getByTemperamentId(any());
-    }
-
-    @Test
-    public void getByTemperamentIdDataNotFoundTest() {
-        when(this.breedTemperamentRepository.findById(any())).thenReturn(Optional.empty());
+        when(this.breedTemperamentRepository.findByTemperamentId(any()))
+                .thenReturn(Collections.singletonList(BreedTableSeed.getBreedTable().getTemperaments().get(0)));
         this.breedPostgresGetProvider.getByTemperamentId(any());
     }
 

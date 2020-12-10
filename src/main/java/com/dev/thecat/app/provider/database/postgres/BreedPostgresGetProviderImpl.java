@@ -63,6 +63,6 @@ public class BreedPostgresGetProviderImpl implements
 
     @Override
     public List<BreedEntity> getByTemperamentId(UUID id) {
-        return this.breedTemperamentRepository.findById(id).stream().map(e -> e.getBreed().toDomain()).collect(Collectors.toList());
+        return this.breedTemperamentRepository.findByTemperamentId(id).stream().map(e -> e.getBreed().toDomain()).collect(Collectors.toList());
     }
 }

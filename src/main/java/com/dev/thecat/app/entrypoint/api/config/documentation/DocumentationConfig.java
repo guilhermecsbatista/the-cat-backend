@@ -1,4 +1,4 @@
-package com.dev.thecat.app.entrypoint.api.config;
+package com.dev.thecat.app.entrypoint.api.config.documentation;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Arrays;
 
 @Configuration
-public class OpenApiConfig {
+public class DocumentationConfig {
 
     @Value("${application.version}")
     private String appVersion;

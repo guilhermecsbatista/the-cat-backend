@@ -8,6 +8,9 @@ application:
       timeout: ${APPLICATION_CLIENT_DEFAULT_TIMEOUT:10000}
   schedule:
     cron: ${APPLICATION_SCHEDULE_CRON:0 0/2 * 1/1 * ?}
+  security:
+    jwt:
+      secretKey: ${APPLICATION_SECURITY_JWT_SECRET_KEY:jwT}
 
 spring:
   datasource:

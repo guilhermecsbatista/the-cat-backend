@@ -45,7 +45,7 @@ theCatApi:
         path: ${THECATAPI_ENDPOINT_V1_IMAGE_PATH:/v1/images/search}
 
 springdoc:
-  show-actuator: true
+  show-actuator: false
   swagger-ui:
     path: '/docs'
     operationsSorter: method

@@ -44,6 +44,7 @@ theCatApi:
         limit: ${THECATAPI_ENDPOINT_V1_BREED_LIMIT:50}
       image:
         path: ${THECATAPI_ENDPOINT_V1_IMAGE_PATH:/v1/images/search}
+        limit: ${THECATAPI_ENDPOINT_V1_IMAGE_LIMIT:3}
 
 springdoc:
   show-actuator: false

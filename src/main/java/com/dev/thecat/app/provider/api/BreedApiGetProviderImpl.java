@@ -37,6 +37,9 @@ public class BreedApiGetProviderImpl implements BreedGetAllProvider {
   @Value("${theCatApi.endpoint.v1.image.path}")
   private String endpointImage;
 
+  @Value("${theCatApi.endpoint.v1.image.limit}")
+  private String endpointImageLimit;
+
   @Value("${theCatApi.token}")
   private String token;
 
@@ -61,7 +64,8 @@ public class BreedApiGetProviderImpl implements BreedGetAllProvider {
     }
 
     for (int i = 0; i < breedResponseList.size(); i++) {
-      var breedImageResponse = this.getBreedImageTheCatApi(breedResponseList.get(i).getId());
+      var breedImageResponse =
+          this.getBreedImageTheCatApi(breedResponseList.get(i).getId(), endpointImageLimit);
       var breedImageResponseBody = breedImageResponse.getBody();
       if (!Objects.requireNonNull(breedImageResponseBody).isEmpty()) {
         breedResponseList.get(i).setBreedImageResponse(breedImageResponseBody);
@@ -92,12 +96,14 @@ public class BreedApiGetProviderImpl implements BreedGetAllProvider {
     }
   }
 
-  private ResponseEntity<List<BreedImageResponse>> getBreedImageTheCatApi(String breedId) {
+  private ResponseEntity<List<BreedImageResponse>> getBreedImageTheCatApi(String breedId,
+                                                                          String limit) {
     HttpHeaders headers = new HttpHeaders();
     headers.set("x-api-key", token);
     headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 
-    var url = urlBase + endpointImage + "?breed_ids=" + breedId + "&include_breeds=false&limit=3";
+    var url = urlBase + endpointImage + "?breed_ids=" + breedId + "&include_breeds=false&limit="
+        + limit;
 
     try {
       return this.restTemplate.exchange(

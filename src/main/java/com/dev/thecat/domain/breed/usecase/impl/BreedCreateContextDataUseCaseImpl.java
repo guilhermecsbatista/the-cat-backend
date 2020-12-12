@@ -9,8 +9,10 @@ import com.dev.thecat.domain.origin.provider.OriginGetByIntegrationIdProvider;
 import com.dev.thecat.domain.temperament.provider.TemperamentGetByIntegrationIdProvider;
 import javax.inject.Named;
 import javax.transaction.Transactional;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+@Log4j2
 @Named
 public class BreedCreateContextDataUseCaseImpl implements BreedCreateContextDataUseCase {
 
@@ -43,6 +45,7 @@ public class BreedCreateContextDataUseCaseImpl implements BreedCreateContextData
   @Transactional
   @Override
   public void execute() {
+    log.info("Getting breeds");
     var breedEntityList = this.breedGetAllProvider.getAll();
 
     for (int i = 0; i < breedEntityList.size(); i++) {
@@ -75,6 +78,7 @@ public class BreedCreateContextDataUseCaseImpl implements BreedCreateContextData
           }
         }
 
+        log.info("Saving breed {}", breedEntityList.get(i));
         this.breedCreateProvider.create(breedEntityList.get(i));
       }
     }

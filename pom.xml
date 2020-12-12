@@ -133,6 +133,7 @@
 						<exclude>**/*TableBuilder.*</exclude>
 						<exclude>**/*Response.*</exclude>
 						<exclude>**/*ResponseBuilder.*</exclude>
+						<exclude>**/*Config.*</exclude>
 					</excludes>
 				</configuration>
 				<executions>

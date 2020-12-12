@@ -68,7 +68,7 @@ public class BreedApiGetProviderImplTest {
   }
 
   @SuppressWarnings("unchecked")
-  @Test(expected = HttpStatusCodeException.class)
+  @Test
   public void getAllImageErrorTest() {
     when(
         this.restTemplate
@@ -86,7 +86,7 @@ public class BreedApiGetProviderImplTest {
     this.breedApiGetProvider.getAll();
   }
 
-  @Test(expected = HttpStatusCodeException.class)
+  @Test
   public void getAllErrorTest() {
     when(
         this.restTemplate

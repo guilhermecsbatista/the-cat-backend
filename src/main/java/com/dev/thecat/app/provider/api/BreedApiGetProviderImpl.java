@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.inject.Named;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
@@ -20,6 +21,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
+@Log4j2
 @Named("breedApiGetProvider")
 public class BreedApiGetProviderImpl implements BreedGetAllProvider {
 
@@ -84,7 +86,9 @@ public class BreedApiGetProviderImpl implements BreedGetAllProvider {
           new ParameterizedTypeReference<List<BreedResponse>>() {
           });
     } catch (HttpStatusCodeException ex) {
-      throw ex;
+      log.error("Request url: {} error: {}", url, ex.getMessage());
+      return new ResponseEntity<List<BreedResponse>>(
+          Collections.emptyList(), ex.getStatusCode());
     }
   }
 
@@ -102,7 +106,9 @@ public class BreedApiGetProviderImpl implements BreedGetAllProvider {
           new ParameterizedTypeReference<List<BreedImageResponse>>() {
           });
     } catch (HttpStatusCodeException ex) {
-      throw ex;
+      log.error("Request url: {} error: {}", url, ex.getMessage());
+      return new ResponseEntity<List<BreedImageResponse>>(
+          Collections.emptyList(), ex.getStatusCode());
     }
   }
 }

@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class IntegrationResponse {
-    private String id;
+  private String id;
 }

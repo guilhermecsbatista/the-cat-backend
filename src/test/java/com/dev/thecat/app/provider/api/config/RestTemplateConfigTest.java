@@ -8,17 +8,17 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class RestTemplateConfigTest {
-    private RestTemplateConfig restTemplateConfig;
+  private RestTemplateConfig restTemplateConfig;
 
-    @Before
-    public void setUp() {
-        this.restTemplateConfig = new RestTemplateConfig();
-        ReflectionTestUtils.setField(this.restTemplateConfig, "restDefaultTimeout", 5000);
-    }
+  @Before
+  public void setUp() {
+    this.restTemplateConfig = new RestTemplateConfig();
+    ReflectionTestUtils.setField(this.restTemplateConfig, "restDefaultTimeout", 5000);
+  }
 
-    @Test
-    public void restTemplateTest() {
-        this.restTemplateConfig.restTemplate();
-    }
+  @Test
+  public void restTemplateTest() {
+    this.restTemplateConfig.restTemplate();
+  }
 
 }

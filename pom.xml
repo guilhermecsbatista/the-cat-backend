@@ -21,6 +21,8 @@
 		<jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
 		<springdoc.version>1.4.8</springdoc.version>
 		<jjwt.version>0.9.1</jjwt.version>
+		<maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
+		<checkstyle-version>8.21</checkstyle-version>
 	</properties>
 
 	<dependencies>
@@ -167,6 +169,30 @@
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>${maven-checkstyle-plugin.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.puppycrawl.tools</groupId>
+						<artifactId>checkstyle</artifactId>
+						<version>${checkstyle-version}</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<configLocation>src/main/resources/google_checks.xml</configLocation>
+					<consoleOutput>true</consoleOutput>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>check</goal>
 						</goals>
 					</execution>
 				</executions>

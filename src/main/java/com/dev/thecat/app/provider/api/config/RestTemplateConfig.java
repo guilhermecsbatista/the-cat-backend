@@ -10,18 +10,18 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class RestTemplateConfig {
-    @Value("${application.client.default.timeout}")
-    private Integer restDefaultTimeout;
+  @Value("${application.client.default.timeout}")
+  private Integer restDefaultTimeout;
 
-    @Bean
-    public RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
-        HttpClient httpClient = HttpClients.createDefault();
-        HttpComponentsClientHttpRequestFactory factory =
-                new HttpComponentsClientHttpRequestFactory(httpClient);
-        factory.setConnectTimeout(restDefaultTimeout);
-        factory.setReadTimeout(restDefaultTimeout);
-        restTemplate.setRequestFactory(factory);
-        return restTemplate;
-    }
+  @Bean
+  public RestTemplate restTemplate() {
+    RestTemplate restTemplate = new RestTemplate();
+    HttpClient httpClient = HttpClients.createDefault();
+    HttpComponentsClientHttpRequestFactory factory =
+        new HttpComponentsClientHttpRequestFactory(httpClient);
+    factory.setConnectTimeout(restDefaultTimeout);
+    factory.setReadTimeout(restDefaultTimeout);
+    restTemplate.setRequestFactory(factory);
+    return restTemplate;
+  }
 }

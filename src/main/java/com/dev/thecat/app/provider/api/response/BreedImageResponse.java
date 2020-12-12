@@ -13,13 +13,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BreedImageResponse {
-    private String id;
-    private String url;
+  private String id;
+  private String url;
 
-    public ImageEntity toDomain() {
-        return ImageEntity.builder()
-                .integrationId(id)
-                .url(url)
-                .build();
-    }
+  public ImageEntity toDomain() {
+    return ImageEntity.builder()
+        .integrationId(id)
+        .url(url)
+        .build();
+  }
 }

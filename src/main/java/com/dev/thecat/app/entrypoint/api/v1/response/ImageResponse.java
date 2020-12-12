@@ -2,12 +2,11 @@ package com.dev.thecat.app.entrypoint.api.v1.response;
 
 import com.dev.thecat.domain.image.entity.ImageEntity;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -15,15 +14,15 @@ import java.util.UUID;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ImageResponse {
-    private UUID id;
-    private IntegrationResponse integration;
-    private String url;
+  private UUID id;
+  private IntegrationResponse integration;
+  private String url;
 
-    public static ImageResponse fromDomain(final ImageEntity image) {
-        return ImageResponse.builder()
-                .id(image.getId())
-                .integration(IntegrationResponse.builder().id(image.getIntegrationId()).build())
-                .url(image.getUrl())
-                .build();
-    }
+  public static ImageResponse fromDomain(final ImageEntity image) {
+    return ImageResponse.builder()
+        .id(image.getId())
+        .integration(IntegrationResponse.builder().id(image.getIntegrationId()).build())
+        .url(image.getUrl())
+        .build();
+  }
 }

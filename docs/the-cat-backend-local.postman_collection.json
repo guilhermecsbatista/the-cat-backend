@@ -1,12 +1,12 @@
 {
 	"info": {
 		"_postman_id": "3263d211-9f35-4748-a8a6-9750a523a522",
-		"name": "the-cat-backend",
+		"name": "the-cat-backend-local",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/v1/breeds",
+			"name": "GET /v1/breeds",
 			"event": [
 				{
 					"listen": "test",
@@ -57,7 +57,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/v1/breeds/{id}",
+			"name": "GET /v1/breeds/{id}",
 			"event": [
 				{
 					"listen": "test",
@@ -109,7 +109,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/v1/temperaments/{id}/breeds",
+			"name": "GET /v1/temperaments/{id}/breeds",
 			"event": [
 				{
 					"listen": "test",
@@ -159,7 +159,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/v1/origins/{id}/breeds",
+			"name": "GET /v1/origins/{id}/breeds",
 			"event": [
 				{
 					"listen": "test",
@@ -207,6 +207,28 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "921714a5-770d-402a-a858-ce0236e40bca",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7a51f7f0-128e-4394-84cb-51546f90597f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}

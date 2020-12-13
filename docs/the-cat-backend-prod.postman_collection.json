@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "a69c8cee-88d3-440b-88d5-eb636e426723",
+		"name": "the-cat-backend-prod",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /v1/breeds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "402ff1f3-e927-4544-9620-5ee1d8349971",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = pm.response.json();",
+							"pm.globals.set(\"breed_id\", jsonData[0].id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.AlBG7wq8By4otICCo7n0-3H1QNCMswEGEMBp1Cg2-dM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://the-cat-backend.herokuapp.com/v1/breeds",
+					"protocol": "https",
+					"host": [
+						"the-cat-backend",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v1",
+						"breeds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /v1/breeds/{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "09d617f2-2c21-437b-88cf-6b54d9d6056b",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = pm.response.json();",
+							"pm.globals.set(\"temperament_id\", jsonData.temperaments[0].id);",
+							"pm.globals.set(\"origin_id\", jsonData.origin.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.AlBG7wq8By4otICCo7n0-3H1QNCMswEGEMBp1Cg2-dM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://the-cat-backend.herokuapp.com/v1/breeds/{{breed_id}}",
+					"protocol": "https",
+					"host": [
+						"the-cat-backend",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v1",
+						"breeds",
+						"{{breed_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /v1/temperaments/{id}/breeds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f53e5b4c-1e7b-48e1-930f-849ccc74c805",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.AlBG7wq8By4otICCo7n0-3H1QNCMswEGEMBp1Cg2-dM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://the-cat-backend.herokuapp.com/v1/temperaments/{{temperament_id}}/breeds",
+					"protocol": "https",
+					"host": [
+						"the-cat-backend",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v1",
+						"temperaments",
+						"{{temperament_id}}",
+						"breeds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /v1/origins/{id}/breeds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c462b6f0-b3da-4b40-b560-b73ba05f52ac",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.AlBG7wq8By4otICCo7n0-3H1QNCMswEGEMBp1Cg2-dM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://the-cat-backend.herokuapp.com/v1/origins/{{origin_id}}/breeds",
+					"protocol": "https",
+					"host": [
+						"the-cat-backend",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v1",
+						"origins",
+						"{{origin_id}}",
+						"breeds"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

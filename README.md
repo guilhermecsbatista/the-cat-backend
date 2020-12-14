@@ -104,6 +104,10 @@ A solução proposta foi desenvolver uma aplicação que possa ser escalável e 
 
 <img src="./docs/images/Architecture.png">
 
+**BPMN Usecases**
+
+<img src="./docs/images/BPMN Usecases.png">
+
 **Arquitetura limpa**
 
 A arquitetura do projeto foi desenvolvido seguindo os conceitos da [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) com os princípios do [SOLID](https://pt.wikipedia.org/wiki/SOLID).

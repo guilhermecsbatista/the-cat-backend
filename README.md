@@ -14,6 +14,7 @@
 - [Executar](#Executar)
 - [Arquitetura](#Arquitetura)
 - [Aplicação](#Aplicação)
+- [Features](#Features)
 
 # Pré-requisitos
 
@@ -215,3 +216,32 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6I
 
 ***Codecov -***
 [Clique aqui](https://codecov.io/gh/guilhermecsbatista/the-cat-backend)
+
+
+## Features
+
+* 	[x] Criar projeto em JAVA 11 + Spring Boot + Lombok + Maven + Postgres.
+* 	[x] Arquitetura clean architecture.
+* 	[x] Coletar dados de raças.
+* 	[x] Coletar três endereços de images sem categoria e por raça.     
+* 	[x] Coletar três endereços de images com categoria chapéu.
+* 	[x] Coletar três endereços de images com categoria óculos.
+* 	[x] Processamento assíncrono, utilizando threads na busca de imagens.     
+* 	[x] Salvar dados no banco de dados.
+* 	[x] REST Endpoint de buscar todas as raças.
+* 	[x] REST Endpoint de buscar as informações de uma raça.
+* 	[x] REST Endpoint de buscar raças por uma origem.
+* 	[x] REST Endpoint de buscar raças por um temperamento.
+* 	[x] Collection postman ambiente local e produção.
+* 	[x] Testes unitários.
+* 	[x] Documentação da API.
+* 	[x] Documentação da arquitetura.
+* 	[x] Documentação do projeto.
+* 	[x] Documentação de como subir a aplicação no ambiente local.     
+* 	[x] Logs request, response e falhas (Console).
+* 	[x] CI build.
+* 	[x] CI coverage.
+* 	[x] CD deploy automatizado [Heroku](https://www.heroku.com/).
+* 	[x] Projeto incluído no [Docker Hub](https://hub.docker.com/r/guilhermecsbatista/the-cat-backend).
+* 	[ ] Aplicativo android utilizando [Flutter](https://flutter.dev/) + [Smart Project Modular](https://github.com/Flutterando/modular) + [Slidy](https://pub.dev/packages/slidy) .
+* 	[ ] Query em tempo real [ELK](https://www.elastic.co/).

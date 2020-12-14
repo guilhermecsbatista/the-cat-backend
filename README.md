@@ -202,3 +202,12 @@ token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6I
  Ambiente de produção
  the-cat-backend/docs/the-cat-backend-prod.postman_collection.json
 ```
+
+***Docker hub -***
+[Clique aqui](https://hub.docker.com/r/guilhermecsbatista/the-cat-backend)
+
+***Travis CI -***
+[Clique aqui](https://travis-ci.org/github/guilhermecsbatista/the-cat-backend)
+
+***Codecov -***
+[Clique aqui](https://codecov.io/gh/guilhermecsbatista/the-cat-backend)

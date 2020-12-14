@@ -189,6 +189,9 @@ Neste diagrama podemos observar a simplicidade de comunicação entre classes e 
 **Documentação da API**
 
 Para acessar a documentação da API [clique aqui](https://the-cat-backend.herokuapp.com/docs)
+```
+token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.AlBG7wq8By4otICCo7n0-3H1QNCMswEGEMBp1Cg2-dM
+```
 
 **Postman collections**
 
